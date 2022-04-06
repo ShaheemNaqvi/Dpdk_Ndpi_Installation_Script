@@ -125,6 +125,10 @@ install_ndpi()
    	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	echo "================Install git============"
 	sudo apt install git
+	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
+	echo"==================Install cjason======="
+	sudo apt install libjson-c-dev
+	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 
 	if [ !  -d "$(pwd)/nDPI" ]; then
 		git clone https://github.com/ntop/nDPI.git
@@ -136,9 +140,6 @@ install_ndpi()
 	cd nDPI
 
 	sudo ./autogen.sh
-   	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
-	echo "================Install libjson-c-dev============"
-	sudo apt install libjson-c-dev
    	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	echo "================./configure============"
 	sudo ./configure

@@ -102,6 +102,9 @@ install_ndpi()
  	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	sudo apt-get upgrade -y
   	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
+	
+	sudo apt-get install build-essential git bison flex libpcap-dev libtool libtool-bin autoconf pkg-config automake autogen libjson-c-dev libnuma-dev libgcrypt20-dev libpcre2-dev
+
 	echo "================Install linux-source============"
 	sudo apt-get install linux-source -y
    	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi

@@ -136,7 +136,7 @@ install_ndpi()
 		else
 		echo "=========file Already exsists========"
 	fi
-
+	sudo chmod -R 777 nDPI/
 	cd nDPI
 
 	sudo ./autogen.sh

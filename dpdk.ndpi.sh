@@ -79,16 +79,16 @@ install_dpdk()
 	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	
     	echo "============Next Command-> meson build=================="
-    	sudo meson build
+    	meson build
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
     	echo "============Next Command-> ninja -C build==============="
-    	sudo ninja -C build
+    	ninja -C build
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
     	echo "============Next Command-> ninja -C build install======="
-    	sudo ninja -C build install
+    	ninja -C build install
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	cd build
-	sudo ninja install
+	ninja install
     	echo "=================sudo ldconfig===================="
     	sudo ldconfig
 	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi

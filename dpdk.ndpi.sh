@@ -88,7 +88,7 @@ install_dpdk()
     	ninja -C build install
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	cd build
-	ninja install
+	sudo ninja install
     	echo "=================sudo ldconfig===================="
     	sudo ldconfig
 	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi

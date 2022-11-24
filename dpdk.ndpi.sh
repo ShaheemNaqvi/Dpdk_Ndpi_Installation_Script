@@ -78,18 +78,22 @@ install_dpdk()
 	cd "dpdk-${DPDK_V}"
 	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	
+	echo "======Export RTE-SDK & Target======"
+	export RTE_SDK=$(pwd)
+	export RTE_TARGET=x86_64-native-linuxapp-gcc
+	
     	echo "============Next Command-> meson build=================="
     	meson build
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
     	echo "============Next Command-> ninja -C build==============="
     	ninja -C build
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
-    	echo "============Next Command-> ninja -C build install======="
-    	ninja -C build install
+    	echo "============Next Command-> sudo ninja -C build install======="
+    	sudo ninja -C build install
     	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	cd build
 	sudo ninja install
-    	echo "=================sudo ldconfig===================="
+    	echo "=================Next>>>sudo ldconfig===================="
     	sudo ldconfig
 	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	echo "===================complete========================="

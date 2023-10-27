@@ -147,13 +147,13 @@ install_ndpi()
 	sudo chmod -R 777 nDPI/
 	cd nDPI
 
-	sudo ./autogen.sh
+	./autogen.sh
    	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
-	echo "================./configure============"
-	sudo ./configure
-   	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
+	#echo "================./configure============"
+	#sudo ./configure
+   	#rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	echo "================make============"
-	sudo make
+	make
    	rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
 	echo "================make install============"
 	sudo make install

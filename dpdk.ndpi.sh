@@ -54,7 +54,6 @@ install_dependancies()
     echo "============Next Command-> Install python============"
     sudo apt-get install python3 python3-pip -y
     sudo apt-get install python3 python3-pip python3-setuptools -y
-    sudo apt-get python3-wheel ninja-build -y
 
     sudo apt install python3-pyelftools -y
     rc=$?; if [[ $rc != 0 ]]; then echo "return code:  ${rc}"; print_error; fi
